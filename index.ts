@@ -21,10 +21,13 @@ export const search = memoizee(
     const options = { node }
 
     if (new URL(node).hostname === 'localhost') {
+      const region = process.env.AWS_REGION
+      if (!region)
+        throw new Error('environment variable AWS_REGION must be defined')
       Object.assign(
         options,
         AwsSigv4Signer({
-          region: process.env.AWS_REGION!,
+          region,
           // @ts-expect-error: service is missing from type definition;
           // fixed in https://github.com/opensearch-project/opensearch-js/pull/377
           service: 'aoss',
