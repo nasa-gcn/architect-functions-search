@@ -20,7 +20,7 @@ export const search = memoizee(
 
     const options = { node }
 
-    if (new URL(node).hostname === 'localhost') {
+    if (new URL(node).hostname !== 'localhost') {
       const region = process.env.AWS_REGION
       if (!region)
         throw new Error('environment variable AWS_REGION must be defined')
