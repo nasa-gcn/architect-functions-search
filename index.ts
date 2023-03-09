@@ -14,7 +14,7 @@ import memoizee from 'memoizee'
 export const search = memoizee(
   async () => {
     const discoveredServices = await services()
-    const props = discoveredServices['nasa-gcn']?.['architect-plugin-search']
+    const props = discoveredServices['nasa_gcn-architect_plugin_search']
     const node = props?.node
     const service = props?.sig4service
     if (!node) throw new Error('unknown endpoint')
