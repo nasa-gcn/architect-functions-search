@@ -14,13 +14,14 @@ import memoizee from 'memoizee'
 export const search = memoizee(
   async () => {
     const discoveredServices = await services()
-    const node =
-      discoveredServices['nasa-gcn']?.['architect-plugin-search']?.node
+    const props = discoveredServices['nasa-gcn']?.['architect-plugin-search']
+    const node = props?.node
+    const service = props?.sig4service
     if (!node) throw new Error('unknown endpoint')
 
     const options = { node }
 
-    if (new URL(node).hostname !== 'localhost') {
+    if (service) {
       const region = process.env.AWS_REGION
       if (!region)
         throw new Error('environment variable AWS_REGION must be defined')
@@ -30,7 +31,7 @@ export const search = memoizee(
           region,
           // @ts-expect-error: service is missing from type definition;
           // fixed in https://github.com/opensearch-project/opensearch-js/pull/377
-          service: 'aoss',
+          service,
         })
       )
     }
