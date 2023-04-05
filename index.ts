@@ -11,10 +11,20 @@ import { Client } from '@opensearch-project/opensearch'
 import { AwsSigv4Signer } from '@opensearch-project/opensearch/aws'
 import memoizee from 'memoizee'
 
+async function getServiceProps() {
+  const discoveredServices = await services()
+  return discoveredServices['nasa_gcn-architect_plugin_search']
+}
+
+/** Return the OpenSearch Service name. */
+export async function name(): Promise<string | undefined> {
+  const props = await getServiceProps()
+  return props.name
+}
+
 export const search = memoizee(
   async () => {
-    const discoveredServices = await services()
-    const props = discoveredServices['nasa_gcn-architect_plugin_search']
+    const props = await getServiceProps()
     const node = props?.node
     const service = props?.sig4service
     if (!node) throw new Error('unknown endpoint')
