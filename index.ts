@@ -39,8 +39,6 @@ export const search = memoizee(
         options,
         AwsSigv4Signer({
           region,
-          // @ts-expect-error: service is missing from type definition;
-          // fixed in https://github.com/opensearch-project/opensearch-js/pull/377
           service,
         })
       )
