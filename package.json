@@ -33,7 +33,7 @@
     "@tsconfig/node14": "^14.1.2",
     "@types/memoizee": "^0.4.8",
     "@types/node": "^18.13.0",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "husky": "^8.0.3",
