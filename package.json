@@ -22,6 +22,9 @@
     "prepare:tsc": "tsc",
     "prepare": "run-p prepare:*"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@architect/functions": ">=5.3.4",
     "@aws-sdk/credential-provider-node": "^3.188.0",
