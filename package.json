@@ -23,7 +23,7 @@
     "prepare": "run-p prepare:*"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "@architect/functions": ">=5.3.4",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@nasa-gcn/eslint-config-gitignore": "^0.0.2",
-    "@tsconfig/node14": "^14.1.2",
+    "@tsconfig/node20": "^20.1.5",
     "@types/memoizee": "^0.4.8",
     "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
