@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "github:nasa-gcn/architect-functions-search"
+    "url": "git+https://github.com/nasa-gcn/architect-functions-search.git"
   },
   "license": "Apache-2.0",
   "contributors": [
