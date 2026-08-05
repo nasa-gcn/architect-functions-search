@@ -23,8 +23,8 @@ export async function name(): Promise<string | undefined> {
 }
 
 export const search = memoizee(
-  async () => {
-    const props = await getServiceProps()
+  async (providedProps?: { node: string; sig4Service: string }) => {
+    const props = providedProps ?? (await getServiceProps())
     const node = props?.node
     const service = props?.sig4service
     if (!node) throw new Error('unknown endpoint')
