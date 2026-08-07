@@ -23,7 +23,7 @@ export async function name(): Promise<string | undefined> {
 }
 
 export const search = memoizee(
-  async (providedProps?: { node: string; sig4Service: string }) => {
+  async (providedProps?: { node: string; sig4service: string }) => {
     const props = providedProps ?? (await getServiceProps())
     const node = props?.node
     const service = props?.sig4service
