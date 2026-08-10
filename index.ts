@@ -7,6 +7,7 @@
  */
 
 import { services } from '@architect/functions'
+import { defaultProvider } from '@aws-sdk/credential-provider-node'
 import { Client } from '@opensearch-project/opensearch'
 import { AwsSigv4Signer } from '@opensearch-project/opensearch/aws'
 import memoizee from 'memoizee'
@@ -40,6 +41,7 @@ export const search = memoizee(
         AwsSigv4Signer({
           region,
           service,
+          getCredentials: defaultProvider(),
         })
       )
     }
